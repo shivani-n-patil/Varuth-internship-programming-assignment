@@ -1,0 +1,71 @@
+//Program for solution of
+/*
+
+
+
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i;
+    int n;//no.of points to consider on the line
+    printf("\nEnter the number of points on the line\n n=  ");
+    scanf("%d",&n);
+
+    float m,c;//variable m to store slope and c to store y intercept of line
+    float y[n];//array y to store values of y
+    float x[n];//array x to store values of x
+
+    printf("\nEnter the value of slope\n m = ");
+    scanf("%f",&m);
+
+    printf("\nEnter the value of y intercept\n c = ");
+    scanf("%f",&c);
+
+    printf("\nEnter data in accending order");
+    printf("\nEnter the values of x \n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%f",&x[i]);
+    }
+    printf("\n");
+
+    // compute values of y for given values of x and m,c
+    for(i=0;i<n;i++)
+    {
+        y[i]=m*x[i]+c;
+        printf("  %f  ",y[i]);
+    }
+
+    //checking for existance of given point on the line
+    float xp,yp,mp;
+    printf("\nEnter the point p(xp,yp)");
+    printf("\nEnter x co-ordinate xp = ");
+    scanf("%f",&xp);
+    printf("\nEnter y co-ordinate yp = ");
+    scanf("%f",&yp);
+
+    /*
+    To check weather point is there on line or not
+    computing slope at that point and
+    if slope is equal to m then that point is there on that line
+    */
+
+    if((yp>=y[0]&&yp<=y[4])&&(xp>=x[0]&&xp<=x[4]))
+    {
+        mp=(yp-c)/xp;
+        if(mp==m)
+            printf("\nPoint P(%f,%f) exist on line \n ",xp,yp);
+        else
+           printf("\nPoint P(%f,%f) doesn't exist on line \n ",xp,yp);
+    }
+    else
+         printf("\nPoint P(%f,%f) doesn't exist on line \n ",xp,yp);
+}
+
+
+
